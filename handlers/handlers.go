@@ -6,12 +6,16 @@ import (
 	"os"
 
 	"github.com/gorilla/mux"
+	"github.com/makrozai/gobaserest/middlew"
+	"github.com/makrozai/gobaserest/routes"
 	"github.com/rs/cors"
 )
 
 // Manipulators setea mi puerto, el handler y pone a escuchar al servidor
 func Manipulators() {
 	router := mux.NewRouter()
+
+	router.HandleFunc("/register", middlew.CheckedBD(routes.Register)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
