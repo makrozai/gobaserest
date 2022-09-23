@@ -11,6 +11,7 @@ func TryLogin(email string, password string) (models.User, bool) {
 	if !duplicate {
 		return user, false
 	}
+
 	passwordBytes := []byte(password)
 	passwordBD := []byte(user.Password)
 	err := bcrypt.CompareHashAndPassword(passwordBD, passwordBytes)
