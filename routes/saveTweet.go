@@ -34,5 +34,5 @@ func SaveTweet(rw http.ResponseWriter, r *http.Request) {
 		http.Error(rw, "no se ha logrado insertar el Tweet", 400)
 	}
 
-	rw.WriteHeader(http.StatusOK)
+	rw.WriteHeader(http.StatusCreated)
 }
