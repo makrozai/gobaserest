@@ -20,7 +20,7 @@ func GetUser(rw http.ResponseWriter, r *http.Request) {
 		http.Error(rw, "ocurrio un error al intentar buscar el registro"+err.Error(), 400)
 		return
 	}
-	rw.Header().Set("context-type", "application/json")
+	rw.Header().Set("Content-Type", "application/json")
 	rw.WriteHeader(http.StatusOK)
 	json.NewEncoder(rw).Encode(user)
 }
