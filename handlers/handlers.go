@@ -21,6 +21,7 @@ func Manipulators() {
 	router.HandleFunc("/user", middlew.CheckedBD(middlew.ValidateJWT(routes.PutUser))).Methods("PUT")
 	router.HandleFunc("/tweets", middlew.CheckedBD(middlew.ValidateJWT(routes.SaveTweet))).Methods("POST")
 	router.HandleFunc("/tweets", middlew.CheckedBD(middlew.ValidateJWT(routes.GetTweets))).Methods("GET")
+	router.HandleFunc("/tweets", middlew.CheckedBD(middlew.ValidateJWT(routes.DeleteTweet))).Methods("DELETE")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
